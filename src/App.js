@@ -9,28 +9,33 @@ class App extends Component {
             age: "",
             gender: "",
             destination: "",
-            dietaryRestrictions: {
+            // dietaryRestrictions: {
               isVegan: false,
               isKosher: false,
               isLactoseFree: false
-            }
+            // }
         }
         this.handleChange = this.handleChange.bind(this)
     }
     
     handleChange(event) {
         const {name, value, type, checked} = event.target
-        type === "checkbox" ? 
-        this.setState(prevState => {
-          return {
-            ...prevState.dietaryRestrictions,
-            dietaryRestrictions:{
+        if(type === "checkbox"){  
+        this.setState(
+          // prevState => {
+          // return {
+            // ...prevState.dietaryRestrictions,
+            // dietaryRestrictions:
+            {
               [name]: checked
-            }
-          }
-
+            // }
+          // }
         }) 
-        : this.setState({[name]: value})  
+      }else{ 
+        this.setState({
+          [name]: value
+        })
+      }  
     }
     
     render() {
@@ -81,7 +86,7 @@ class App extends Component {
                             type="checkbox" 
                             name="isVegan"
                             value="Vegan"
-                            checked={this.state.dietaryRestrictions.isVegan}
+                            checked={this.state.isVegan}
                             onChange={this.handleChange}
                         /> Vegan
                     </label>
@@ -91,7 +96,7 @@ class App extends Component {
                             type="checkbox" 
                             name="isKosher"
                             value="Kosher"
-                            checked={this.state.dietaryRestrictions.isKosher}
+                            checked={this.state.isKosher}
                             onChange={this.handleChange}
                         /> Kosher
                     </label>
@@ -101,7 +106,7 @@ class App extends Component {
                             type="checkbox" 
                             name="isLactoseFree"
                             value="Lactose Free"
-                            checked={this.state.dietaryRestrictions.isLactoseFree}
+                            checked={this.state.isLactoseFree}
                             onChange={this.handleChange}
                         /> Lactose Free
                     </label>
