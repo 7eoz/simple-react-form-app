@@ -41,8 +41,6 @@ class App extends Component {
         })
       }  
     }
-
-
     
     render() {
         return (
@@ -117,8 +115,6 @@ class App extends Component {
                         /> Lactose Free
                     </label>
                     <br />
-                    
-                    {/* Create check boxes for dietary restrictions here */}
                     <br />
                     
                     <button>Submit</button>
