@@ -9,55 +9,20 @@ class App extends Component {
             age: "",
             gender: "",
             destination: "",
-            // dietaryRestrictions: {
               isVegan: false,
               isKosher: false,
               isLactoseFree: false,
               dietaryRestrictions: []
-            // }
         }
         this.handleChange = this.handleChange.bind(this)
     }
-
-    // function handleDietaryRestrictions() {
-    //     if(this.state.isVegan){
-    //         this.dietaryRestrictions.push("Vegan")
-    //     }
-    // }
     
     handleChange(event) {
-        // const dietaryRestrictions = []
-
-        // if(this.state.isVegan && !this.state.dietaryRestrictions.includes("Vegan")){
-        //     dietaryRestrictions.push("Vegan")
-        // }
-        // if(this.state.isKosher && !this.state.dietaryRestrictions.includes("Kosher")){
-        //     dietaryRestrictions.push("Kosher")
-        // }
-        // if(this.state.isLactoseFree && !this.state.dietaryRestrictions.includes("Lactose Free")){
-        //     dietaryRestrictions.push("Lactose Free")
-        // }
-        // if(!this.state.isVegan && this.state.dietaryRestrictions.includes("Vegan")){
-        //     dietaryRestrictions.pop("Vegan")
-        // }
-        // if(!this.state.isKosher && this.state.dietaryRestrictions.includes("Kosher")){
-        //     dietaryRestrictions.pop("Kosher")
-        // }
-        // if(!this.state.isLactoseFree && this.state.dietaryRestrictions.includes("Lactose Free")){
-        //     dietaryRestrictions.pop("Lactose Free")
-        // }
-
         const {name, value, type, checked} = event.target
         if(type === "checkbox"){  
         this.setState(
-          // prevState => {
-          // return {
-            // ...prevState.dietaryRestrictions,
-            // dietaryRestrictions:
             {
               [name]: checked
-            // }
-          // }
         })
         if(checked){
             this.setState(prevState => ({
@@ -70,7 +35,6 @@ class App extends Component {
         })
         }  
         console.log(this.state.dietaryRestrictions)
-        // console.log(this.state.dietaryRestrictions.join(", "))
       }else{ 
         this.setState({
           [name]: value
